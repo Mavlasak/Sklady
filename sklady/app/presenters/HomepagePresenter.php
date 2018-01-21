@@ -51,6 +51,6 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 	
     public function StorageSucceeded(Form $form) {
             $values = $form->getValues();
-            $stores=$this->Movement->addMovement($values); 
+            $this->Movement->addMovement($values); 
         }
 }
