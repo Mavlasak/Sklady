@@ -22,6 +22,7 @@ class Movement {
          foreach($this->Stores->loadStore() as $store) {
                 $stores[$store->name]=$store->related('movement.warehouse_id')
                         ->select('SUM(stock_count) AS stock_count, MAX(created_at) AS last_movement, stock_name')
+                        ->where('warehouse_id=?',$store->id)
                         ->group('movement.stock_name')->fetchAll();
         }
         return $stores;
