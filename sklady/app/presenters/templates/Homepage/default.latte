@@ -1,0 +1,14 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+
+{control storage}
+
+<br>
+{foreach $Movements as $storeName => $store}
+Název skladu:{$storeName}<br><br>
+    {foreach $store as $movement }
+        Název zboží:{$movement->stock_name}, Celkový počet kusů:{$movement->stock_count}, Naposled naskladněno: {$movement->last_movement}<br> 
+    {/foreach}
+<br>    
+{/foreach}
